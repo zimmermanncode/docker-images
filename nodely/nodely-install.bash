@@ -17,17 +17,14 @@ do
 
     expose-python-version ${py_version}
 
-    pip_requirement_options=
-    for file in ${PYTHON_REQUIREMENT_FILES}
-    do
-        pip_requirement_options="                                           \
-            ${pip_requirement_options} --requirement ${file}"
-    done
     "python${py_version}" -m pip install                                    \
         ${PYTHON_PACKAGES}                                                  \
-        ${pip_requirement_options}                                          \
-        ${pip_editable_options}                                             \
         nodely
+
+    for file in ${PYTHON_REQUIREMENT_FILES}
+    do
+        "python${py_version}" -m pip install --requirement ${file}
+    done
 
     for dir in ${PYTHON_DEVELOPMENT_DIRS}
     do
