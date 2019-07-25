@@ -1,0 +1,6 @@
+version: '3.4'
+services:
+
+  nodely:
+    build: ./nodely
+    image: zimmermanncode/nodely:latest
