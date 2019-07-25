@@ -12,6 +12,7 @@ do
     conda_env_name="py${py_version_nodot}"
     conda create --yes --name "${conda_env_name}"                           \
         python="${py_version}"                                              \
+        ${CONDA_PACKAGES}                                                   \
         ipykernel                                                           \
         ipython
 
