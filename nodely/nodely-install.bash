@@ -33,6 +33,8 @@ do
     done
 done
 
+conda install --yes ${CONDA_ROOT_PACKAGES}
+
 python () {
     "${CONDA_ROOT}/bin/python" "$@"
 }
