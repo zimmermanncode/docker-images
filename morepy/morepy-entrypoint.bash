@@ -1,0 +1,1 @@
+source /nodely-entrypoint.bash

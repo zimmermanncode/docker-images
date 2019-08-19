@@ -1,0 +1,1 @@
+source /nodely-install.bash

@@ -1,6 +1,10 @@
 version: '3.4'
 services:
 
+  morepy:
+    build: ./morepy
+    image: zimmermanncode/morepy:latest
+
   nodely:
     build: ./nodely
     image: zimmermanncode/nodely:latest
