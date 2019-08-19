@@ -23,7 +23,11 @@ RUN apt-get update                                                          \
  && apt-get clean                                                           \
  && rm -rf /var/lib/apt/lists/*
 
-ENV CONDA_ROOT=/opt/conda
+ENV CONDA_ROOT=/opt/conda                                                   \
+    CONDA_ROOT_PACKAGES="                                                   \
+        jupyter                                                             \
+        nb_conda                                                            \
+        "
 
 RUN wget -O /Miniconda3.sh                                                  \
     https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh   \
@@ -32,9 +36,11 @@ RUN wget -O /Miniconda3.sh                                                  \
  && rm /Miniconda3.sh                                                       \
                                                                             \
  && ln -s "${CONDA_ROOT}/bin/conda" /usr/local/bin/conda                    \
- && conda install --yes                                                     \
-        jupyter                                                             \
-        nb_conda
+ && conda install --yes ${CONDA_ROOT_PACKAGES}
+
+ENV PYTHON_PACKAGES="                                                       \
+        nodely>=0.4.0                                                       \
+        "
 
 ADD nodely-install.bash /
 RUN dos2unix /nodely-install.bash
