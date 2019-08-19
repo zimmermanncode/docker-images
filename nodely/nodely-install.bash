@@ -39,13 +39,10 @@ python () {
     "${CONDA_ROOT}/bin/python" "$@"
 }
 
-pip_requirement_options=
 for file in ${JUPYTER_EXTENSION_REQUIREMENT_FILES}
 do
-    pip_requirement_options="                                               \
-        ${pip_requirement_options} --requirement ${file}"
+    python -m pip install --requirement ${file}
 done
-python -m pip install ${pip_requirement_options}
 
 for dir in ${JUPYTER_EXTENSION_DEVELOPMENT_DIRS}
 do
