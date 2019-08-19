@@ -19,8 +19,7 @@ do
     expose-python-version ${py_version}
 
     "python${py_version}" -m pip install                                    \
-        ${PYTHON_PACKAGES}                                                  \
-        nodely
+        ${PYTHON_PACKAGES}
 
     for file in ${PYTHON_REQUIREMENT_FILES}
     do
