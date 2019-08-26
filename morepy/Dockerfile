@@ -2,7 +2,7 @@ FROM zimmermanncode/nodely:latest
 
 ENV PYTHON_PACKAGES="                                                       \
         ${PYTHON_PACKAGES}                                                  \
-        morepy                                                              \
+        morepy>=0.1.0                                                       \
         "
 
 ADD morepy-install.bash /
