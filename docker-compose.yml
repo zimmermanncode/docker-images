@@ -4,7 +4,15 @@ services:
   morepy:
     build: ./morepy
     image: zimmermanncode/morepy:latest
+    environment:
+      PYTHON_VERSIONS: "2.7 3.7"
+    ports:
+      - "8888:8888"
 
   nodely:
     build: ./nodely
     image: zimmermanncode/nodely:latest
+    environment:
+      PYTHON_VERSIONS: "2.7 3.7"
+    ports:
+      - "8888:8888"
